@@ -1,0 +1,96 @@
+//1
+
+function frequency(array){
+    let resultList = [];
+    for (let i=0; i < array.length; i++){
+        if(resultList[array[i]] === undefined){
+            resultList[array[i]] = 1;
+        }else if (resultList[array[i]] >= 0){
+    	    resultList[array[i]] = resultList[array[i]] + 1;
+        }
+    }
+       for (let j = 0; j<resultList.length; j++){
+            if (resultList[j] !== undefined){
+                console.log(j + " : " + resultList[j])
+            }
+        }
+}
+
+
+//2
+
+function longestWord(sentence){
+	sentence = sentence.split(" ");
+  let max = sentence[0].length();
+  let indexOfMax = 0;
+  for (let i=1; i<sentence.length(); i++){
+  	if (sentence[i].length()>max){
+    	max = sentence[i].length();
+      indexOfMax = i;
+    }
+  }
+  alert(sentence[indexOfMax]);
+}
+
+
+
+
+//4
+function mover (word){
+    let newWord = "";
+    let width = word.length;
+    if (word.length %3 !== 0){
+        width = width -2;
+    }
+
+    for (let i = 1; i <= width; i++){
+        if (i % 3 === 0){
+            newWord += word[i-3]
+        }else{
+            newWord += word[i];
+        }
+    }
+
+    if (word.length !== width){
+        newWord += word[width] + word[width + 1];
+    }
+    alert(newWord)
+}
+
+//5
+
+
+
+function negMult(arr){
+	let result = [];
+    let mul = 1;
+    let check = 0;
+	for (let i = 0; i < arr.length; i++){
+        if(arr[i].length === undefined){
+            mul = "Invalid Argument"
+            break
+        }
+  		arr[i].sort((a, b) => a - b);
+  		for (let j = arr[i].length; j > 0 ; j--){
+    	    if (arr[i][j-1] < 0){
+          		result[i] = arr[i][j-1];
+                break
+            }else{
+                result[i] = 0
+            }
+                    
+    	}
+    }
+    for(let i=0; i < result.length; i++){
+        if (result[i] < 0){
+            mul *= result[i]
+        }else{
+            check++
+            if (check === result.length){
+                mul = "No negatives"
+            }
+        }
+    }
+    alert(mul)
+}
+
